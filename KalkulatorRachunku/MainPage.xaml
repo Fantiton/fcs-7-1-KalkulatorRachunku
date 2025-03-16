@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KalkulatorRachunku.MainPage">
+
+    <ScrollView>
+        <Grid
+            BackgroundColor="Wheat"
+            WidthRequest="540"
+            HeightRequest="960"
+            Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label 
+                Text="Rachunek"
+                FontSize="Header"
+                Grid.Row="0"
+                Grid.ColumnSpan="3"
+                TextColor="Black"
+                FontAttributes="Bold"
+                >
+                
+            </Label>
+            <Line 
+                X1="0"
+                X2="500"
+                Y1="20"
+                Y2="20"
+                Stroke="Black"
+                StrokeThickness="5"
+                Grid.Row="1"
+                Grid.ColumnSpan="3"></Line>
+            <Label 
+                Text="Wprowadź wartość: "
+                FontSize="Small"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                Padding="10"
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                ></Label>
+            <Frame 
+                BackgroundColor="Black"
+                CornerRadius="1"
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Padding="0">
+                <Entry 
+                    x:Name="billAmountEntry"
+                    Placeholder="Wprowadź kwotę rachunku"
+                    BackgroundColor="Wheat"
+                    Keyboard="Numeric"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    TextColor="Black"
+                    FontSize="Medium"
+                    TextChanged="BillAmountChanged">
+                </Entry>
+            </Frame>
+            <Label
+                Text="Ilość osób"
+                FontSize="Medium"
+                TextColor="Black"
+                FlexLayout.AlignSelf="Start"
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="1"
+                Margin="10">
+                
+            </Label>
+            <Entry 
+                x:Name="GuestsEntry"
+                Text="1"
+                TextColor="black"
+                BackgroundColor="Wheat"
+                Keyboard="Numeric"
+                FontSize="Medium"
+                TextChanged="GuestsChanged"
+                FlexLayout.AlignSelf="Start"
+                HorizontalTextAlignment="Center"
+                WidthRequest="50"
+                Margin="7"
+                Grid.Row="4"
+                Grid.Column="1"
+                Grid.ColumnSpan="1">
+                
+            </Entry>
+            <Label 
+                Text="Procent napiwku"
+                FontSize="Medium"
+                TextColor="Black"
+                Margin="10"
+                Grid.Row="5"
+                Grid.Column="0">
+            </Label>
+            <Label 
+                x:Name="TipLabel"
+                Text="0%"
+                FontSize="Medium"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                Grid.Row="5"
+                Grid.Column="1">
+                
+            </Label>
+            <Slider 
+                x:Name="TipSlider"
+                Maximum="30"
+                Minimum="0"
+                Value="15"
+                ValueChanged="TipSliderChanged"
+                HorizontalOptions="Center"
+                WidthRequest="400"
+                MaximumTrackColor="Wheat"
+                MinimumTrackColor="Black"
+                VerticalOptions="Start"
+                Grid.Row="6"
+                Grid.ColumnSpan="3">
+            </Slider>
+            <Label x:Name="BillTotalAmountLabel"
+                   Text="Do zapłaty: "
+                   Grid.Row="7"
+                   Grid.ColumnSpan="3"
+                   TextColor="black"
+                   FontSize="Medium">
+            </Label>
+        </Grid>
+    </ScrollView>
+</ContentPage>
