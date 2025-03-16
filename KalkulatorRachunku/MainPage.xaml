@@ -18,6 +18,8 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -108,7 +110,7 @@
             </Label>
             <Label 
                 x:Name="TipLabel"
-                Text="0%"
+                Text="15%"
                 FontSize="Medium"
                 TextColor="Black"
                 HorizontalOptions="Center"
@@ -130,12 +132,56 @@
                 Grid.Row="6"
                 Grid.ColumnSpan="3">
             </Slider>
+            <Button x:Name="TipButton10"
+                    Text="10%"
+                    TextColor="Black"
+                    FontSize="Medium"
+                    BackgroundColor="Wheat"
+                    BorderColor="Black"
+                    Clicked="TipButton10Clicked"
+                    Grid.Row="7"
+                    Grid.Column="0"
+                    BorderWidth="2">
+
+            </Button>
+            <Button x:Name="TipButton15"
+                Text="15%"
+                TextColor="Black"
+                FontSize="Medium"
+                BackgroundColor="Wheat"
+                BorderColor="Black"
+                Clicked="TipButton15Clicked"
+                Grid.Row="7"
+                Grid.Column="1"
+                BorderWidth="2">
+
+            </Button>
+            <Button x:Name="TipButton20"
+                Text="20%"
+                TextColor="Black"
+                FontSize="Medium"
+                BackgroundColor="Wheat"
+                BorderColor="Black"
+                Clicked="TipButton20Clicked"
+                Grid.Row="7"
+                Grid.Column="2"
+                BorderWidth="2">
+
+            </Button>
             <Label x:Name="BillTotalAmountLabel"
-                   Text="Do zapłaty: "
-                   Grid.Row="7"
+                   Text="Do zapłaty: 0zł"
+                   Grid.Row="8"
                    Grid.ColumnSpan="3"
                    TextColor="black"
                    FontSize="Medium">
+            </Label>
+            <Label x:Name="BillPersonalAmountLabel"
+                   Text="Na osobę: 0zł"
+                   Grid.Row="9"
+                   Grid.ColumnSpan="3"
+                   TextColor="black"
+                   FontSize="Medium">
+                
             </Label>
         </Grid>
     </ScrollView>
