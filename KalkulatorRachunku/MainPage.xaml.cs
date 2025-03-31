@@ -2,7 +2,7 @@
 {
     public partial class MainPage : ContentPage
     {
-        float billAmount = 0;
+        int billAmountInt = 0;
         int guests = 1;
         int tipPercent = 15;
         public MainPage()
@@ -15,8 +15,10 @@
         {
             if(billAmountEntry.Text != "")
             {
-                billAmount = float.Parse(billAmountEntry.Text);
-            } else { billAmount = 0; }
+                float billAmount = float.Parse(billAmountEntry.Text);
+                float bAD = float.Round(billAmount, 2);
+                billAmountInt = (int)bAD * 100;
+            } else { billAmountInt = 0; }
 
             DisplayTotalBillAmount();
         }
@@ -36,16 +38,17 @@
 
         private void DisplayTotalBillAmount()
         {
-            float totalBillAmount = billAmount + (billAmount * tipPercent / 100);
-            BillTotalAmountLabel.Text = "Do zapłaty: " + totalBillAmount.ToString() + "zł";
+            float totalBillAmount = billAmountInt + (billAmountInt * tipPercent / 100);
+            float totalBillAmountZloty = totalBillAmount / 100;
+            BillTotalAmountLabel.Text = "Do zapłaty: " + float.Round(totalBillAmountZloty, 2).ToString() + "zł";
             DisplayPersonalBillAmount();
         }
 
         private void DisplayPersonalBillAmount()
         {
-            float totalBillAmount = billAmount + (billAmount * tipPercent / 100);
-            float personalBillAmount = totalBillAmount / guests;
-            BillPersonalAmountLabel.Text = "Na osobę: " + personalBillAmount.ToString() + "zł";
+            float totalBillAmount = billAmountInt + (billAmountInt * tipPercent / 100);
+            float personalBillAmount = (totalBillAmount / guests) / 100;
+            BillPersonalAmountLabel.Text = "Na osobę: " + float.Round(personalBillAmount, 2).ToString() + "zł";
         }
 
         private void TipButton10Clicked(object sender, EventArgs e)
